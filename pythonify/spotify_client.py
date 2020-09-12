@@ -103,6 +103,8 @@ class SpotifyAPI(object):
         if response.status_code == 401:
             self.sv.did_access_token_expire = True
             raise Exception("Access token expired, re-run program")
+        elif response.status_code == 400:
+            raise Exception("The uri is invalid")
         else:
             print("Successful")
 
@@ -157,7 +159,7 @@ class SpotifyAPI(object):
             raise Exception("No track_id_list found")
 
         request_body = json.dumps({
-            "uris": f"{track_id_list}"
+            "uris": track_id_list
         })
         query = 'https://api.spotify.com/v1/playlists/{}/tracks'.format(playlist_id)
         response = requests.post(
@@ -168,7 +170,7 @@ class SpotifyAPI(object):
                 "Authorization": "Bearer {}".format(self.sv.user_access_token)
             }
         )
+        self.approve(response)
         response_json = response.json()
-        print(response_json)
 
         return response_json['snapshot_id']
