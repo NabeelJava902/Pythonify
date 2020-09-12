@@ -160,5 +160,5 @@ class SpotifyUserObject(object):
                 self.authorize_token = new_url[31:len(new_url)]
                 self.perform_auth(self.get_token_data(), self.get_token_headers())
             else:
-                self.authorization_token = self.refresh_token  # Use refresh token instead
+                self.authorization_token = self.sv.user_refresh_token  # Use refresh token instead
                 self.perform_auth(self.get_refresh_token_data(), self.get_token_headers())
