@@ -88,13 +88,14 @@ class SpotifyAPI(object):
         if artist is not None:
             var = items[self.advanced_search(items, artist)]
         song_name = var['name']  # independent
+        uri = var['uri']
         data = var['album']['artists'][0]
         external_urls = data['external_urls']
         song_data = {
             'url': f"{external_urls['spotify']}",
             'id': f"{data['id']}",
             'name': f"{data['name']}",
-            'uri': f"{data['uri']}",
+            'uri': f"{uri}",
             'song_name': f"{song_name}"
         }
         return song_data
