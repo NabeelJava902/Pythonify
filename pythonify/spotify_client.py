@@ -83,7 +83,10 @@ class SpotifyAPI(object):
         if dictionary is None:
             raise Exception('A dict variable must be passed to this method')
         items = dictionary['tracks']['items']
-        var = items[0]
+        try:
+            var = items[0]
+        except:
+            raise IndexError("Song can not be found")
         if artist is not None:
             var = items[self.advanced_search(items, artist)]
         song_name = var['name']  # independent
