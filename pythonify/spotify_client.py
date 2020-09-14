@@ -10,7 +10,6 @@ from pythonify.backend import *
 
 
 class SpotifyAPI(object):
-
     sv = SaveLoad()
 
     def __init__(self):
@@ -102,7 +101,7 @@ class SpotifyAPI(object):
 
     def approve(self, response):
         if response.status_code == 401:
-            self.sv.did_access_token_expire = True
+            self.sv.clear_file()
             raise Exception("Access token expired, re-run program")
         elif response.status_code == 400:
             raise Exception("The uri is invalid")

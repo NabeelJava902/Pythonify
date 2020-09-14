@@ -35,3 +35,8 @@ class SaveLoad(object):
     def set_tokens(self, access, refresh):
         self.user_refresh_token = refresh
         self.user_access_token = access
+
+    def clear_file(self):
+        file = open("pythonify/dump.txt", 'rb')
+        file.truncate(0)
+        file.close()
