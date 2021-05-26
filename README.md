@@ -5,6 +5,7 @@ A super simple python api for spotify. Has support for searching songs, artists,
 * Create playlists and add tracks to it
 * All authentication handled by backend
 # Instructions
+* Watch https://youtube.be/xdq6Gz33khQ to make your own client id, secret id, and user id and paste it into the variables file
 * To retrieve information about an artist, call the get_artist() function and pass in the id of the artist which can be retrieved from the spotify app.
 * To retrieve information about an album, call the get_album() function and pass in the id of the album which can be retrieved from the spotify app.
 * To retrieve information about a track, call the get_track() function and pass in the name of the track.
