@@ -1,5 +1,5 @@
 # Pythonify
-A super simple python api for spotify. Has support for searching songs, artists, and albums, as well as creating personal playlists.
+A simple python api for spotify. Has support for searching songs, artists, and albums, as well as creating personal playlists.
 # Features
 * Search tracks, artists, and albums
 * Create playlists and add tracks to it
